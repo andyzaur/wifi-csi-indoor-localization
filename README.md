@@ -112,7 +112,8 @@ python -m csi_gui.app
 
 Recorded sessions are written under `sessions/` (git-ignored). The repository ships
 the analysis code and firmware; collect your own sessions, or replay the pipeline on
-sessions you record, following [`SESSION_CHECKLIST.md`](SESSION_CHECKLIST.md).
+sessions you record, following [`SESSION_CHECKLIST.md`](SESSION_CHECKLIST.md). See
+[`CHEATSHEET.md`](CHEATSHEET.md) for a full terminal command reference.
 
 ## Building the firmware
 
