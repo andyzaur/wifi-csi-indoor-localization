@@ -1,0 +1,33 @@
+# Python dependencies for the WiFi CSI indoor-localization pipeline.
+# Tested with Python 3.13 and 3.14. Create a venv and install:
+#
+#     python3 -m venv venv
+#     source venv/bin/activate
+#     pip install -r requirements.txt
+
+# Core scientific stack
+numpy==2.4.4
+pandas==3.0.3
+scipy==1.17.1
+scikit-learn==1.8.0
+matplotlib==3.10.9
+
+# Computer-vision ground truth (ArUco marker tracking)
+opencv-python==4.13.0.92
+
+# Machine-learning models and tuning
+lightgbm==4.6.0
+xgboost==3.2.0
+torch==2.12.0
+optuna==4.9.0
+joblib==1.5.3
+
+# Native data-collection GUI (Qt for Python)
+PySide6==6.11.1
+
+# Test runner
+pytest==8.4.2
+
+# Optional Apple-Silicon backend, only used by mlx_net.py / mlx_vs_torch.py.
+# Uncomment on macOS with Apple Silicon:
+# mlx==0.31.2

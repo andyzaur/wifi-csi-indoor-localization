@@ -1,0 +1,3 @@
+# GUI dependencies for the native PySide6/Qt data-collection front-end.
+# Install into the project venv: pip install -r requirements-gui.txt
+PySide6>=6.8

@@ -1,0 +1,30 @@
+# Python
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# macOS
+.DS_Store
+
+# ESP-IDF build artifacts
+build/
+sdkconfig.old
+managed_components/
+dependencies.lock
+.cache/
+
+# Recorded session data (large; not distributed with the repo).
+# Locally this may be a symlink to a real recordings directory.
+sessions/
+/sessions
+
+# Local machine-specific config (e.g. saved home WiFi credentials)
+.csi_gui_local.json
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*~

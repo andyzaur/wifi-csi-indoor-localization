@@ -1,0 +1,8 @@
+# Target
+CONFIG_IDF_TARGET="esp32c6"
+
+# Flash (WROOM-1U N8 has 8MB flash)
+CONFIG_ESPTOOLPY_FLASHSIZE_8MB=y
+
+# Console over native USB
+CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG=y
