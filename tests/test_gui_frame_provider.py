@@ -266,18 +266,19 @@ def test_bridge_emits_measured_fps_on_forwarded_frames():
 
 
 # ---------------------------------------------------------------------------
-# (c) Shell smoke: MainWindow builds with 5 sidebar rows, switching changes the
+# (c) Shell smoke: MainWindow builds with 4 sidebar rows, switching changes the
 #     stacked page, and every page constructs without error. Offscreen.
 # ---------------------------------------------------------------------------
 from csi_gui.app_context import AppContext  # noqa: E402
 from csi_gui.ui.main_window import MainWindow, _SECTIONS  # noqa: E402
 
 
-def test_shell_has_five_sidebar_rows_and_pages():
+def test_shell_has_four_sidebar_rows_and_pages():
     win = MainWindow(AppContext())
-    assert win._sidebar.count() == 5
-    assert win._stack.count() == 5
-    assert [win._sidebar.item(i).text() for i in range(5)] == list(_SECTIONS)
+    assert win._sidebar.count() == 4
+    assert win._stack.count() == 4
+    assert [win._sidebar.item(i).text() for i in range(4)] == list(_SECTIONS)
+    assert "Train" not in _SECTIONS
 
 
 def test_shell_switching_changes_stacked_page():

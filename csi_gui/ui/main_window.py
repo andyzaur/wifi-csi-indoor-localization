@@ -1,4 +1,4 @@
-"""MainWindow: the 5-section sidebar shell for the CSI data-collection GUI.
+"""MainWindow: the 4-section sidebar shell for the CSI data-collection GUI.
 
 Layout (the redesigned "lab instrument" shell):
 
@@ -8,8 +8,7 @@ Layout (the redesigned "lab instrument" shell):
     |  1 Calibrate   |                                            |
     |  2 Record      |   QStackedWidget of pages                  |
     |  3 Sessions    |                                            |
-    |  4 Train       |                                            |
-    |  5 Live-validate                                            |
+    |  4 Live-validate                                            |
     |  (spacer)      |                                            |
     | global status  |                                            |
     +----------------+--------------------------------------------+
@@ -56,18 +55,16 @@ from csi_gui.ui.pages.calibrate_page import CalibratePage
 from csi_gui.ui.pages.live_validate_page import LiveValidatePage
 from csi_gui.ui.pages.record_page import RecordPage
 from csi_gui.ui.pages.sessions_page import SessionsPage
-from csi_gui.ui.pages.train_page import TrainPage
 
 # (label, attribute-name) for each sidebar section, in workflow order.
-_SECTIONS = ("Calibrate", "Record", "Sessions", "Train", "Live-validate")
+_SECTIONS = ("Calibrate", "Record", "Sessions", "Live-validate")
 
 # One-line subtitle per section, shown in the topbar.
 _SUBTITLES = {
     "Calibrate": "Floor grid · lens · marker layout — check before you record.",
     "Record": "Guided pre-flight → capture → live monitor → validate.",
     "Sessions": "Browse recordings, check quality, visualize, label the good ones.",
-    "Train": "Pick labelled sessions → train the localizer → read the results.",
-    "Live-validate": "Real ArUco vs the model's estimate, side by side, live.",
+    "Live-validate": "Live position estimate from the trained model, on the floor map.",
 }
 
 _SHELL_QSS = f"""
@@ -172,7 +169,7 @@ class _NavDelegate(QStyledItemDelegate):
 
 
 class MainWindow(QMainWindow):
-    """Sidebar shell hosting the five workflow pages."""
+    """Sidebar shell hosting the four workflow pages."""
 
     def __init__(self, context: AppContext | None = None, parent=None) -> None:
         super().__init__(parent)
@@ -198,15 +195,13 @@ class MainWindow(QMainWindow):
         self.calibrate_page = CalibratePage(self._context)
         self.record_page = RecordPage(self._context)
         self.sessions_page = SessionsPage()
-        self.train_page = TrainPage()
-        self.live_validate_page = LiveValidatePage()
+        self.live_validate_page = LiveValidatePage(self._context)
 
         # Same order as _SECTIONS.
         self._pages = [
             self.calibrate_page,
             self.record_page,
             self.sessions_page,
-            self.train_page,
             self.live_validate_page,
         ]
         for page in self._pages:

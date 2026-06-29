@@ -35,7 +35,7 @@ win = MainWindow()
 win.resize(W, H)
 win.show()
 
-SECTIONS = ["calibrate", "record", "sessions", "train", "live_validate",
+SECTIONS = ["calibrate", "record", "sessions", "live_validate",
             "record_empty"]
 state = {"i": 0}
 
